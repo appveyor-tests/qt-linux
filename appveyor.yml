@@ -5,6 +5,7 @@ init:
   - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
 
 build_script:
+  - cat $HOME/Qt/5.14.2/gcc_64/mkspecs/qconfig.pri
   - PATH=$HOME/Qt/5.14.2/gcc_64/bin:$PATH
   - qmake hello.pro
   - make
