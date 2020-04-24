@@ -5,12 +5,6 @@ init:
   - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
 
 build_script:
-  - ps: |
-      $mkspecPath = "$HOME/Qt/5.14.2/gcc_64/mkspecs/qconfig.pri"
-      $spec = [IO.File]::ReadAllText($mkspecPath)
-      $spec = $spec.Replace('QT_EDITION = Enterprise', 'QT_EDITION = OpenSource').Replace('QT_LICHECK = licheck.exe', 'QT_LICHECK =').Replace('QT_LICHECK = licheck64', 'QT_LICHECK =')
-      [IO.File]::WriteAllText($mkspecPath, $spec)
-  - cat $HOME/Qt/5.14.2/gcc_64/mkspecs/qconfig.pri
   - PATH=$HOME/Qt/5.14.2/gcc_64/bin:$PATH
   - qmake hello.pro
   - make
