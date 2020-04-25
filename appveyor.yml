@@ -16,3 +16,5 @@ test_script:
       [ -x hello ]
   - sh: ./hello
   
+on_finish:
+- sleep 1800
