@@ -6,7 +6,7 @@ init:
 
 build_script:
   - ls -al $HOME/Qt
-  - PATH=$HOME/Qt/5.14.2/gcc_64/bin:$PATH
+  - PATH=$HOME/Qt/5.15.2/gcc_64/bin:$HOME/Qt/5.15.2/clang_64/bin:$PATH
   - qmake hello.pro
   - make
   
