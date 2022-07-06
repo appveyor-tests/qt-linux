@@ -5,7 +5,9 @@ init:
   - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
 
 build_script:
-  - ls -al $HOME/Qt
+  - cd $HOME/Qt
+  - find . -mindepth 2 -maxdepth 2 -type d -ls
+  - cd ..
   - PATH=$HOME/Qt/5.15.2/gcc_64/bin:$HOME/Qt/5.15.2/clang_64/bin:$PATH
   - qmake hello.pro
   - make
