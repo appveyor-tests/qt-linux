@@ -3,6 +3,7 @@ init:
   - ps: Update-AppveyorBuild -Message "Image '$env:APPVEYOR_BUILD_WORKER_IMAGE'@'$env:APPVEYOR_BUILD_WORKER_CLOUD' cloud. $env:APPVEYOR_REPO_COMMIT_MESSAGE"
   - sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
   - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
+  - sh: [ ! -d "$HOME/Qt/6.7/" ] && echo "No Qt 7 dir"
 
 build_script:
   - pushd -- $HOME/Qt
