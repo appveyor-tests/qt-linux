@@ -6,9 +6,9 @@ init:
   - sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
   - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
   - sh: |
-      [ ! -d "$HOME/Qt/6.7/" ] && echo "No Qt 6.7 dir" || echo "Qt 6.7 dir exists"
+      [ ! -d "$HOME/Qt/6.9/" ] && echo "No Qt 6.9 dir" || echo "Qt 6.9 dir exists"
   - sh: |
-      [ ! -d "$HOME/Qt/6.6/" ] && echo "No Qt 6.6 dir" || echo "Qt 6.6 dir exists"
+      [ ! -d "$HOME/Qt/6.8/" ] && echo "No Qt 6.8 dir" || echo "Qt 6.8 dir exists"
   - sh: |
       [ ! -d "$HOME/Qt/6.5/" ] && echo "No Qt 6.5 dir" || echo "Qt 6.5 dir exists"
 
