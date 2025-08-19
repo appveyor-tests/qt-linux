@@ -33,6 +33,14 @@ build_script:
 
   
 test_script:
+  - sh: cd build-qt5
+  - sh: |
+      [ -f main.o ]
+  - sh: |
+      [ -x hello ]
+  - sh: ./hello
+  - sh: cd ..
+  - sh: cd build-qt6
   - sh: |
       [ -f main.o ]
   - sh: |
