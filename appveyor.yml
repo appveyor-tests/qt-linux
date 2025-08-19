@@ -13,12 +13,23 @@ init:
       [ ! -d "$HOME/Qt/6.5/" ] && echo "No Qt 6.5 dir" || echo "Qt 6.5 dir exists"
 
 build_script:
+
   - pushd -- $HOME/Qt
   - find . -mindepth 2 -maxdepth 2 -type d -ls
   - popd
+  # Build Qt 5
   - PATH=$HOME/Qt/5.15.2/gcc_64/bin:$HOME/Qt/5.15.2/clang_64/bin:$PATH
-  - qmake hello.pro
+  - mkdir build-qt5 && cd build-qt5
+  - qmake ../hello.pro
   - make
+  - cd ..
+  # Build newest Qt
+  - PATH=$HOME/Qt/6.9.1/bin:$PATH
+  - mkdir build-qt6 && cd build-qt6
+  - qmake ../hello.pro
+  - make
+  - cd ..
+
   
 test_script:
   - sh: |
