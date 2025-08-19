@@ -25,6 +25,7 @@ build_script:
   - cd ..
   # Build newest Qt
   - PATH=$HOME/Qt/6.9.1/bin:$HOME/Qt/6.9.1:$PATH
+  - export LD_LIBRARY_PATH=$HOME/Qt/6.9.1:$LD_LIBRARY_PATH
   - mkdir build-qt6 && cd build-qt6
   - qmake ../hello.pro
   - make
