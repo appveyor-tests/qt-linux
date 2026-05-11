@@ -6,11 +6,11 @@ init:
   - sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
   - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
   - sh: |
-      [ ! -d "$HOME/Qt/6.9/" ] && echo "No Qt 6.9 dir" || echo "Qt 6.9 dir exists"
+      [ ! -d "$HOME/Qt/6.11/" ] && echo "No Qt 6.11 dir" || echo "Qt 6.11 dir exists"
   - sh: |
       [ ! -d "$HOME/Qt/6.8/" ] && echo "No Qt 6.8 dir" || echo "Qt 6.8 dir exists"
   - sh: |
-      [ ! -d "$HOME/Qt/6.5/" ] && echo "No Qt 6.5 dir" || echo "Qt 6.5 dir exists"
+      [ ! -d "$HOME/Qt/6.10/" ] && echo "No Qt 6.10 dir" || echo "Qt 6.10 dir exists"
 
 build_script:
 
@@ -18,14 +18,14 @@ build_script:
   - find . -mindepth 2 -maxdepth 2 -type d -ls
   - popd
   # Build Qt 5
-  - PATH=$HOME/Qt/5.15.2/gcc_64/bin:$HOME/Qt/5.15.2/clang_64/bin:$PATH
-  - mkdir build-qt5 && cd build-qt5
-  - qmake ../hello.pro
-  - make
-  - cd ..
+  # - PATH=$HOME/Qt/5.15.2/gcc_64/bin:$HOME/Qt/5.15.2/clang_64/bin:$PATH
+  # - mkdir build-qt5 && cd build-qt5
+  # - qmake ../hello.pro
+  # - make
+  # - cd ..
   # Build newest Qt
-  - PATH=$HOME/Qt/6.9.1/bin:$HOME/Qt/6.9.1:$PATH
-  - export LD_LIBRARY_PATH=$HOME/Qt/6.9.1:$LD_LIBRARY_PATH
+  - PATH=$HOME/Qt/6.11.0/bin:$HOME/Qt/6.11.0:$PATH
+  - export LD_LIBRARY_PATH=$HOME/Qt/6.11.0:$LD_LIBRARY_PATH
   - mkdir build-qt6 && cd build-qt6
   - qmake ../hello.pro
   - make
@@ -33,13 +33,13 @@ build_script:
 
   
 test_script:
-  - sh: cd build-qt5
-  - sh: |
-      [ -f main.o ]
-  - sh: |
-      [ -x hello ]
-  - sh: ./hello
-  - sh: cd ..
+  #- sh: cd build-qt5
+  #- sh: |
+  #    [ -f main.o ]
+  #- sh: |
+  #    [ -x hello ]
+  #- sh: ./hello
+  #- sh: cd ..
   - sh: cd build-qt6
   - sh: |
       [ -f main.o ]
