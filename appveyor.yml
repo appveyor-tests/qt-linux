@@ -11,7 +11,7 @@ init:
       [ ! -d "$HOME/Qt/6.8/" ] && echo "No Qt 6.8 dir" || echo "Qt 6.8 dir exists"
   - sh: |
       [ ! -d "$HOME/Qt/6.10/" ] && echo "No Qt 6.10 dir" || echo "Qt 6.10 dir exists"
-  - sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
+  #- sh: curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
 
 build_script:
 
